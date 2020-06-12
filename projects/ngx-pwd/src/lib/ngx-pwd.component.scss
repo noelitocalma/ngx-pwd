@@ -1,0 +1,37 @@
+.ngx-pwd {
+  font-family: sans-serif;
+  > div {
+    display: flex;
+    align-items: center;
+
+    a {
+      flex: 1;
+      font-style: italic;
+    }
+
+    span {
+      font-weight: 700
+    }
+  }
+
+  .ngx-pwd-recommended {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
+  }
+
+  .ngx-pwd-bullet {
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    display: blcok;
+  }
+
+  small {
+    margin-left: 5px;
+    font-style: italic;
+    font-weight: 300;
+  }
+}

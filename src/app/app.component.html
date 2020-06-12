@@ -1,0 +1,13 @@
+<div class="ngx-pwd-demo">
+  <div class="ngx-pwd-demo-form">
+    <p>NgxPwdModule Demo</p>
+
+    <div class="ngx-pwd-demo-input">
+      <input type="text" [(ngModel)]="password" placeholder="enter your password">
+    </div>
+
+    <div class="ngx-pwd-demo-component">
+      <ngx-pwd [options]="options" [password]="password" [valid]="valid" (useRecPW)="useRecPwd($event)"></ngx-pwd>
+    </div>
+  </div>
+</div>
