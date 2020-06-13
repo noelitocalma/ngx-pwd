@@ -1,24 +1,120 @@
 # NgxPwd
 
-### Password strength meter with generator
+- Password strength meter with generator all in one
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project NgxPwd` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project NgxPwd`.
-> Note: Don't forget to add `--project NgxPwd` or else it will be added to the default project in your `angular.json` file.
+`
+npm i ngx-pwd
+`
 
-## Build
+## API
+```
+import { NgxPwdModule } from 'ngx-pwd';
 
-Run `ng build NgxPwd` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
+-- HTML --
 
-After building your library with `ng build NgxPwd`, go to the dist folder `cd dist/ngx-pwd` and run `npm publish`.
+<ngx-pwd [options]="options" [password]="password" [valid]="valid" (useRecPW)="useRecPwd($event)"></ngx-pwd>
 
-## Running unit tests
+````
 
-Run `ng test NgxPwd` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### @Inputs()
 
-## Further help
+| Input            | Type         | Required                   | Description                                                                                               |
+| ---------------- | -----------  | -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| password         | string       | ***YES***                  | Password to check                                                                                         |
+| valid            | Observable   | Optional                   | returns if password is valid                                                                              |
+| options          | object       | **NO**                     | NgxPwdOptions                                                                      |
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### @Output()
+
+| Output           | Type         | Required                   | Description                                                                                               |
+| ---------------- | -----------  | -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| useRecPW         | Callback     | **NO**                     | Emits the generated password back to the parent component                                                 |
+
+
+### NgxPwdOptions
+| Options          | Type         | Required                   | Description                                                                                               |
+| ---------------- | -----------  | -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| length           | Number       | Defaults: 8                | Generated password length                                                                                 |
+| color            | String       | Defaults: #18b4d7          | Background color of bullet when passed                                                                    |
+| hideAfterUse     | Boolean      | Defaults: false            | Whether to hide generated password after used                                                             |
+
+
+### Sample Usage
+
+1) Register the `NgxPwdModule` in your app module.
+ > `import { NgxPwdModule } from 'ngx-pwd'`
+
+``` tyscript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { NgxPwdModule } from 'ngx-pwd';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgxPwdModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+```
+2) Declare the options on yout app.component.ts
+
+``` typscript
+import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'ngx-pwd';
+
+  valid: BehaviorSubject<any> = new BehaviorSubject(false);
+  password = '';
+
+  options = {
+    length: 10,
+    hideAfterUse: true
+  };
+
+  useRecPwd (pwd: string) {
+    this.password = pwd;
+  }
+}
+
+```
+3) Use the component `<ngx-pwd></ngx-pwd>` in your component.
+
+``` html
+<div class="ngx-pwd-demo">
+  <div class="ngx-pwd-demo-form">
+    <p>NgxPwdModule Demo</p>
+
+    <div class="ngx-pwd-demo-input">
+      <input type="text" [(ngModel)]="password" placeholder="enter your password">
+    </div>
+
+    <div class="ngx-pwd-demo-component">
+      <ngx-pwd [options]="options" [password]="password" [valid]="valid" (useRecPW)="useRecPwd($event)"></ngx-pwd>
+    </div>
+  </div>
+</div>
+```
+
+###
+
+Thanks to all resources

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { Subject } from 'rxjs';
 import { NgxPwdService } from './ngx-pwd.service';
 
@@ -27,9 +27,9 @@ export interface NgxPwdOptions {
   `,
   styleUrls: ['./ngx-pwd.component.scss']
 })
-export class NgxPwdComponent implements OnInit {
-  @Input() options: NgxPwdOptions;
-  @Input() valid: Subject<boolean> = new Subject();
+export class NgxPwdComponent implements OnInit, OnChanges {
+  @Input() options?: NgxPwdOptions;
+  @Input() valid?: Subject<boolean> = new Subject();
   @Input() password: string;
   @Output() useRecPW = new EventEmitter();
 
@@ -50,10 +50,12 @@ export class NgxPwdComponent implements OnInit {
 
   ngOnChanges() {
     const valid = this.ngxPwdService.validate(this.password);
-    this.valid.next(valid);
+    if (this.valid) {
+      this.valid.next(valid);
+    }
   }
 
-  usePassword () {
+  usePassword() {
     this.useRecPW.emit(this.recPwd.value);
     this.recPwd.used = true;
   }

@@ -1,6 +1,24 @@
 {
   "name": "ngx-pwd",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "A simple password strength meter and generator",
+  "author": "Noelito Calma",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zoiii/ngx-pwd.git"
+  },
+  "homepage": "https://github.com/zoiii/ngx-pwd",
+  "bugs": {
+    "url": "https://github.com/zoiii/ngx-pwd/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "password",
+    "meter",
+    "generator",
+    "strength",
+    "checker"
+  ],
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11"
