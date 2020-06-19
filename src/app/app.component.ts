@@ -14,6 +14,7 @@ export class AppComponent {
 
   options = {
     length: 10,
+    color: '#f44336',
     hideAfterUse: true
   };
 

@@ -17,7 +17,11 @@
     "meter",
     "generator",
     "strength",
-    "checker"
+    "checker",
+    "angular",
+    "frontend",
+    "compoent",
+    "validator"
   ],
   "peerDependencies": {
     "@angular/common": "^9.1.11",

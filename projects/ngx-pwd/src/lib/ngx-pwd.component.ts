@@ -2,12 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angu
 import { Subject } from 'rxjs';
 import { NgxPwdService } from './ngx-pwd.service';
 
-export interface NgxPwdOptions {
+interface NgxPwdOptions {
   length?: 8;
   color?: string;
   hideAfterUse?: false;
 }
-
 @Component({
   selector: 'ngx-pwd',
   template: `

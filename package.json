@@ -17,7 +17,11 @@
     "meter",
     "generator",
     "strength",
-    "checker"
+    "checker",
+    "angular",
+    "frontend",
+    "compoent",
+    "validator"
   ],
   "scripts": {
     "ng": "ng",
