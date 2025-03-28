@@ -21,4 +21,6 @@ export class AppComponent {
   useRecPwd (pwd: string) {
     this.password = pwd;
   }
+
+
 }

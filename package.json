@@ -5,11 +5,11 @@
   "author": "Noelito Calma",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zoiii/ngx-pwd.git"
+    "url": "https://github.com/noelitocalma/ngx-pwd.git"
   },
-  "homepage": "https://github.com/zoiii/ngx-pwd",
+  "homepage": "https://github.com/noelitocalma/ngx-pwd",
   "bugs": {
-    "url": "https://github.com/zoiii/ngx-pwd/issues"
+    "url": "https://github.com/noelitocalma/ngx-pwd/issues"
   },
   "license": "MIT",
   "keywords": [
